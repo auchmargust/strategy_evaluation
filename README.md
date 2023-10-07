@@ -22,7 +22,7 @@ conda env create --file environment.yml
 conda activate ml4t
 ```
 
-## Use **Python 3.6** for this project
+Use **Python 3.6** for this project
 
 ## Strategy Construction
 
