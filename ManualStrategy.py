@@ -6,10 +6,6 @@ from util import get_data, plot_data
 import indicators as ind
 import marketsimcode as mkt
 
-def author():
-
-    return "jfeng89"
-
 # Use SMA & BBP & ROC
 
 def testPolicy(

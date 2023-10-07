@@ -14,8 +14,6 @@ import random
 
 def seed():
     return 903450072
-def author():
-    return "jfeng89"
 
 if __name__ == "__main__":
     print("---Test Project---")
