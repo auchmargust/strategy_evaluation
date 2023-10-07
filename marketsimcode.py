@@ -8,8 +8,9 @@ import ManualStrategy as ms
 import StrategyLearner as sl
 import matplotlib.pyplot as plt
 
+
 class marketsimcode(object):
-    def __init__(self,symbol, sd,ed,sv, impact, commission):
+    def __init__(self, symbol, sd, ed, sv, impact, commission):
         self.symbol = symbol
         self.sd = sd
         self.ed = ed
@@ -18,63 +19,64 @@ class marketsimcode(object):
         if commission is None:
             self.commission = 0
         else:
-            self.commission = commission
-    def author(self):
-        return "jfeng89"  # Change this to your user ID
+            self.commission = commissio
 
     def compute_portvals(self,
-        order,
-    ):
+                         order,
+                         ):
         syms = [self.symbol]
         start_date = self.sd
         end_date = self.ed
 
         # Construct price dataframe
         prices = get_data(syms, pd.date_range(start_date, end_date))
-        prices = prices[syms] # remove SPY
-        prices['Cash']=1.0
-        prices = pd.DataFrame(prices,index = prices.index,columns=prices.columns)
+        prices = prices[syms]  # remove SPY
+        prices['Cash'] = 1.0
+        prices = pd.DataFrame(prices, index=prices.index,
+                              columns=prices.columns)
 
-        buy_prices=prices.copy()
+        buy_prices = prices.copy()
         sell_prices = prices.copy()
 
         buy_prices = buy_prices[syms] * (1+self.impact)
         sell_prices = sell_prices[syms]*(1-self.impact)
 
-
-        #Construct trade dataframe
+        # Construct trade dataframe
         trades = pd.DataFrame(0.0, index=prices.index, columns=prices.columns)
         trades['Cash'] = 0
         for index, row in order.iterrows():
             trade_shares = row[syms].values[0]
-            if trade_shares>0:
-                price = buy_prices.loc[buy_prices.index == index, syms].values[0]
-                cash_used = (-trade_shares)*price -self.commission
-                trades.loc[trades.index == index,syms] += trade_shares
+            if trade_shares > 0:
+                price = buy_prices.loc[buy_prices.index ==
+                                       index, syms].values[0]
+                cash_used = (-trade_shares)*price - self.commission
+                trades.loc[trades.index == index, syms] += trade_shares
                 trades.loc[trades.index == index, 'Cash'] += cash_used
             else:
-                price = sell_prices.loc[sell_prices.index == index, syms].values[0]
-                cash_used = (-trade_shares)*price -self.commission
+                price = sell_prices.loc[sell_prices.index ==
+                                        index, syms].values[0]
+                cash_used = (-trade_shares)*price - self.commission
                 trades.loc[trades.index == index, syms] += trade_shares
                 trades.loc[trades.index == index, 'Cash'] += cash_used
 
-
-        #Construct holding dataframe
-        holdings = pd.DataFrame(0.0, index=prices.index, columns=prices.columns)
-        holdings.loc[trades.index[0],'Cash'] += self.sv
-        holdings.loc[holdings.index>=start_date,:] += trades.loc[holdings.index>=start_date,:]
+        # Construct holding dataframe
+        holdings = pd.DataFrame(0.0, index=prices.index,
+                                columns=prices.columns)
+        holdings.loc[trades.index[0], 'Cash'] += self.sv
+        holdings.loc[holdings.index >= start_date,
+                     :] += trades.loc[holdings.index >= start_date, :]
         for i in range(1, holdings.shape[0]):
-            holdings.ix[i,:] = holdings.ix[i-1, :] + holdings.ix[i,:]
+            holdings.ix[i, :] = holdings.ix[i-1, :] + holdings.ix[i, :]
 
-        #Construct values dataframe
+        # Construct values dataframe
         values = holdings*prices
 
-        #Get portfolio values
+        # Get portfolio values
         portvals = pd.DataFrame(index=values.index)
-        portvals['Value']=values.sum(axis=1)
+        portvals['Value'] = values.sum(axis=1)
         return portvals
 
-    def get_stats(self,portvals):
+    def get_stats(self, portvals):
         if isinstance(portvals, pd.DataFrame):
             portvals = portvals[
                 portvals.columns[0]]  # just get the first column
@@ -96,15 +98,16 @@ class marketsimcode(object):
         return cum_ret, avg_daily_ret, std_daily_ret, sharpe_ratio
 
     def get_graph(self,
-            df_trades,graph_title,
-    ):
+                  df_trades, graph_title,
+                  ):
         port_val = self.compute_portvals(
             order=df_trades
         )
         port_val = port_val[:] / port_val.iloc[0].values
         port_stat = self.get_stats(portvals=port_val)
 
-        benchmark_order = pd.DataFrame(0, index=df_trades.index, columns=['JPM'])
+        benchmark_order = pd.DataFrame(
+            0, index=df_trades.index, columns=['JPM'])
         benchmark_order.loc[df_trades.index[0]] = 1000
         benchmark_val = self.compute_portvals(
             order=benchmark_order
@@ -144,9 +147,3 @@ class marketsimcode(object):
 
 if __name__ == "__main__":
     print("marketsim")
-
-
-   
-
-
-

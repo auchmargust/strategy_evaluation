@@ -1,0 +1,3 @@
+mylogfile.log
+git rm --cached image.png 
+git rm --cached image-1.png Fig1.png

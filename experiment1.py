@@ -9,8 +9,6 @@ import ManualStrategy as ms
 import StrategyLearner as sl
 import matplotlib.pyplot as plt
 
-def author():
-    return "jfeng89"
 
 def exp1():
     in_sample_start_date = dt.datetime(2008, 1, 1)
@@ -24,20 +22,20 @@ def exp1():
 
     # Setting up different market simulations for in & out sample
     mkt_sim_in = mkt.marketsimcode(symbol="JPM", sd=in_sample_start_date, ed=in_sample_end_date, sv=starting_val,
-                               commission=commission, impact=impact)
+                                   commission=commission, impact=impact)
     mkt_sim_out = mkt.marketsimcode(symbol="JPM", sd=out_sample_start_date, ed=out_sample_end_date, sv=starting_val,
-                                commission=commission, impact=impact)
+                                    commission=commission, impact=impact)
 
     # Manual Strategy In Sample
     ms_orders_in = ms.testPolicy(symbol="JPM", sd=in_sample_start_date, ed=in_sample_end_date,
-                              sv=starting_val)
+                                 sv=starting_val)
     ms_in = mkt_sim_in.compute_portvals(order=ms_orders_in)
     ms_in = ms_in[:] / ms_in.iloc[0].values
 
     # Manual Strategy Out Sample
     ms_orders_out = ms.testPolicy(symbol="JPM", sd=out_sample_start_date, ed=out_sample_end_date,
-                               sv=starting_val)
-    ms_out = mkt_sim_out.compute_portvals(order=ms_orders_out )
+                                  sv=starting_val)
+    ms_out = mkt_sim_out.compute_portvals(order=ms_orders_out)
     ms_out = ms_out[:] / ms_out.iloc[0].values
 
     # Initiating Strategy Learner
@@ -69,7 +67,7 @@ def exp1():
         order=b_orders_in
     )
     b_in = b_in[:] / b_in.iloc[0].values
-    
+
     # Out Sample Benchmark
     b_orders_out = pd.DataFrame(0, index=ms_orders_out.index, columns=['JPM'])
     b_orders_out.loc[ms_orders_out.index[0]] = 1000
