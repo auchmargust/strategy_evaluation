@@ -65,5 +65,5 @@ The blue and black lines represented LONG and SHORT trades conducted by the manu
 | Benchmark | 0.0123 | 0.000168 | 0.017004 | 0.156918
 
 **In conclusion:**
-In Sample Manual Stragtegy has substantially outperfromed the benchmark: its CR (cumulative return) is almost **21x** benchmark CR and also has a higher Sharpe Ratio.
+In Sample Manual Strategy has substantially outperformed the benchmark: its CR (cumulative return) is almost **21x** benchmark CR and also has a higher Sharpe Ratio.
 During Out Sample Period, Manual Strategy still makes profits whereas benchmark is losing money.
