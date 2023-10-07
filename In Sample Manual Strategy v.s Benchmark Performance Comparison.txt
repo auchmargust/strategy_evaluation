@@ -1,0 +1,33 @@
+               CR       ADR       STD        SR
+Strategy   0.2536  0.000526  0.012502  0.668302
+Benchmark  0.0123  0.000168  0.017004  0.156918               CR       ADR       STD        SR
+Strategy   0.2536  0.000526  0.012502  0.668302
+Benchmark  0.0123  0.000168  0.017004  0.156918               CR       ADR       STD        SR
+Strategy   0.2536  0.000526  0.012502  0.668302
+Benchmark  0.0123  0.000168  0.017004  0.156918               CR       ADR       STD        SR
+Strategy   0.2536  0.000526  0.012502  0.668302
+Benchmark  0.0123  0.000168  0.017004  0.156918               CR       ADR       STD        SR
+Strategy   0.2536  0.000526  0.012502  0.668302
+Benchmark  0.0123  0.000168  0.017004  0.156918               CR       ADR       STD        SR
+Strategy   0.2536  0.000526  0.012502  0.668302
+Benchmark  0.0123  0.000168  0.017004  0.156918               CR       ADR       STD        SR
+Strategy   0.2536  0.000526  0.012502  0.668302
+Benchmark  0.0123  0.000168  0.017004  0.156918               CR       ADR       STD        SR
+Strategy   0.2536  0.000526  0.012502  0.668302
+Benchmark  0.0123  0.000168  0.017004  0.156918               CR       ADR       STD        SR
+Strategy   0.2536  0.000526  0.012502  0.668302
+Benchmark  0.0123  0.000168  0.017004  0.156918               CR       ADR       STD        SR
+Strategy   0.2536  0.000526  0.012502  0.668302
+Benchmark  0.0123  0.000168  0.017004  0.156918               CR       ADR       STD        SR
+Strategy   0.2536  0.000526  0.012502  0.668302
+Benchmark  0.0123  0.000168  0.017004  0.156918               CR       ADR       STD        SR
+Strategy   0.2536  0.000526  0.012502  0.668302
+Benchmark  0.0123  0.000168  0.017004  0.156918               CR       ADR       STD        SR
+Strategy   0.2536  0.000526  0.012502  0.668302
+Benchmark  0.0123  0.000168  0.017004  0.156918               CR       ADR       STD        SR
+Strategy   0.2536  0.000526  0.012502  0.668302
+Benchmark  0.0123  0.000168  0.017004  0.156918               CR       ADR       STD        SR
+Strategy   0.2536  0.000526  0.012502  0.668302
+Benchmark  0.0123  0.000168  0.017004  0.156918               CR       ADR       STD        SR
+Strategy   0.2536  0.000526  0.012502  0.668302
+Benchmark  0.0123  0.000168  0.017004  0.156918
